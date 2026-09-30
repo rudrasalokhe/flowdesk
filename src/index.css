@@ -97,7 +97,7 @@ svg {
   display: block;
 }
 
-.reference-app .workspace-main {
+.workspace-main {
   background: #fff;
   border-radius: 3px;
   width: 100%;
@@ -105,18 +105,18 @@ svg {
   margin: 0;
 }
 
-.reference-app .workspace-main main {
+.workspace-main main {
   max-width: 1600px;
   min-height: calc(100vh - 90px);
   padding: 26px 28px;
   animation: none;
 }
 
-.reference-app .workspace-main.is-workbench {
+.workspace-main.is-workbench {
   background: 0 0;
 }
 
-.reference-app .is-workbench main {
+.is-workbench main {
   max-width: none;
   min-height: 0;
   padding: 0;
@@ -342,7 +342,7 @@ svg {
 .avatar.yellow { color: #a28f52; background: #f3ecd6; }
 .avatar.neutral { color: #858d9d; background: #f0f1f5; }
 
-.reference-app .badge {
+.badge {
   border: 0;
   border-radius: 2px;
   padding: 3px 6px;
@@ -353,19 +353,19 @@ svg {
   white-space: nowrap;
 }
 
-.reference-app .badge > span {
+.badge > span {
   display: none;
 }
 
-.reference-app .badge.qualified { color: #637bb7; background: #eff3ff; }
-.reference-app .badge.demo { color: #8c78a8; background: #f6f1fc; }
-.reference-app .badge.negotiation, .reference-app .badge.medium, .reference-app .badge.pending, .reference-app .badge.away { color: #bb9b67; background: #fff7eb; }
-.reference-app .badge.won, .reference-app .badge.completed, .reference-app .badge.available { color: #4c9480; background: #edf9f5; }
-.reference-app .badge.high, .reference-app .badge.high-priority, .reference-app .badge.overdue, .reference-app .badge.lost { color: #b88469; background: #fff4ec; }
-.reference-app .badge.low { color: #969da9; background: #f5f6f8; }
+.badge.qualified { color: #637bb7; background: #eff3ff; }
+.badge.demo { color: #8c78a8; background: #f6f1fc; }
+.badge.negotiation, .badge.medium, .badge.pending, .badge.away { color: #bb9b67; background: #fff7eb; }
+.badge.won, .badge.completed, .badge.available { color: #4c9480; background: #edf9f5; }
+.badge.high, .badge.high-priority, .badge.overdue, .badge.lost { color: #b88469; background: #fff4ec; }
+.badge.low { color: #969da9; background: #f5f6f8; }
 
 /* Buttons & Controls */
-.reference-app .button {
+.button {
   box-shadow: none;
   color: #7d8ba2;
   background: #fff;
@@ -381,22 +381,22 @@ svg {
   display: inline-flex;
 }
 
-.reference-app .button:hover {
+.button:hover {
   background: #f4f6fb;
   border-color: #c3cee5;
 }
 
-.reference-app .button.primary {
+.button.primary {
   color: #fff;
   background: #2c50f3;
   border-color: #2c50f3;
 }
 
-.reference-app .button.primary:hover {
+.button.primary:hover {
   background: #2345dc;
 }
 
-.reference-app .button.danger {
+.button.danger {
   color: #fff;
   background: #c35959;
   border-color: #c35959;
@@ -408,7 +408,7 @@ svg {
   font-size: 11px;
 }
 
-.reference-app .date-display {
+.date-display {
   color: #9cabc3;
   border: 1px solid #e7edf7;
   background: #fff;
@@ -421,7 +421,7 @@ svg {
 }
 
 /* Page Headings & Panels */
-.reference-app .page-heading {
+.page-heading {
   justify-content: space-between;
   align-items: center;
   gap: 25px;
@@ -429,7 +429,7 @@ svg {
   display: flex;
 }
 
-.reference-app .page-heading p {
+.page-heading p {
   color: #8c95a5;
   margin-top: 6px;
   font-size: 12px;
@@ -443,7 +443,7 @@ svg {
   display: flex;
 }
 
-.reference-app .panel {
+.panel {
   box-shadow: none;
   border: 1px solid #edf0f5;
   border-radius: 3px;
@@ -452,7 +452,7 @@ svg {
   overflow: hidden;
 }
 
-.reference-app .panel-header {
+.panel-header {
   justify-content: space-between;
   align-items: center;
   gap: 15px;
@@ -460,12 +460,12 @@ svg {
   display: flex;
 }
 
-.reference-app .panel-header h2 {
+.panel-header h2 {
   font-size: 14px;
   font-weight: 400;
 }
 
-.reference-app .panel-header p {
+.panel-header p {
   color: #939faf;
   margin-top: 5px;
   font-size: 11px;
@@ -1164,20 +1164,20 @@ svg {
   font-size: 10px;
 }
 
-.reference-app .metric-value {
+.metric-value {
   letter-spacing: -.8px;
   color: #344660;
   font-size: 28px;
   font-weight: 400;
 }
 
-.reference-app .metric-label {
+.metric-label {
   color: #8290a5;
   font-size: 11px;
   font-weight: 400;
 }
 
-.reference-app .metrics-grid {
+.metrics-grid {
   box-shadow: none;
   border: 1px solid #e8eef7;
   border-radius: 3px;
@@ -1212,7 +1212,7 @@ svg {
   display: flex;
 }
 
-.reference-app .positive {
+.positive {
   color: #81ab99;
   font-size: 10px;
   font-weight: 400;
@@ -1221,7 +1221,7 @@ svg {
   display: inline-flex;
 }
 
-.reference-app .source-chart {
+.source-chart {
   align-items: center;
   gap: 12px;
   min-height: 200px;
@@ -1357,18 +1357,18 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .person strong, .reference-app .company-name {
+.person strong, .company-name {
   color: #2c3441;
   font-size: 12px;
   font-weight: 400;
 }
 
-.reference-app .person > div > span {
+.person > div > span {
   color: #a5afbe;
   font-size: 10px;
 }
 
-.reference-app .source-name, .reference-app .assignee {
+.source-name, .assignee {
   color: #8290a5;
   align-items: center;
   gap: 5px;
@@ -1404,7 +1404,7 @@ tbody tr:hover {
 }
 
 /* Tabs & Filter Bars */
-.reference-app .tabs-row {
+.tabs-row {
   border-bottom: 1px solid #ecf0f5;
   justify-content: space-between;
   align-items: center;
@@ -1413,12 +1413,12 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .tabs {
+.tabs {
   gap: 26px;
   display: flex;
 }
 
-.reference-app .tabs button {
+.tabs button {
   color: #96a3b7;
   white-space: nowrap;
   padding: 4px 2px 17px;
@@ -1427,11 +1427,11 @@ tbody tr:hover {
   position: relative;
 }
 
-.reference-app .tabs button.selected {
+.tabs button.selected {
   color: #5272d4;
 }
 
-.reference-app .tabs button.selected:after {
+.tabs button.selected:after {
   content: "";
   background: #5f7be0;
   height: 1px;
@@ -1441,7 +1441,7 @@ tbody tr:hover {
   right: 0;
 }
 
-.reference-app .tabs button > span {
+.tabs button > span {
   color: #95a9d4;
   background: #f0f4ff;
   border-radius: 2px;
@@ -1450,7 +1450,7 @@ tbody tr:hover {
   font-size: 9px;
 }
 
-.reference-app .segmented {
+.segmented {
   background: #f7f9fd;
   border: 1px solid #e9eef7;
   border-radius: 3px;
@@ -1459,13 +1459,13 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .segmented button {
+.segmented button {
   color: #9aa3b3;
   padding: 5px 7px;
   display: flex;
 }
 
-.reference-app .segmented .selected {
+.segmented .selected {
   box-shadow: none;
   border: 1px solid #e6ecf9;
   border-radius: 2px;
@@ -1473,7 +1473,7 @@ tbody tr:hover {
   color: #5c75b9;
 }
 
-.reference-app .filter-bar {
+.filter-bar {
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
@@ -1481,7 +1481,7 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .search-input {
+.search-input {
   color: #aab8ce;
   background: #fff;
   border: 1px solid #ebeff7;
@@ -1494,7 +1494,7 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .search-input input {
+.search-input input {
   color: #7a8fad;
   background: transparent;
   border: 0;
@@ -1508,7 +1508,7 @@ tbody tr:hover {
   position: relative;
 }
 
-.reference-app .select-wrap select {
+.select-wrap select {
   -webkit-appearance: none;
   appearance: none;
   color: #98a8c3;
@@ -1529,7 +1529,7 @@ tbody tr:hover {
   right: 9px;
 }
 
-.reference-app .table-footer {
+.table-footer {
   color: #a3b1c8;
   border-top: 1px solid #edf1f8;
   justify-content: space-between;
@@ -1540,13 +1540,13 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .pagination {
+.pagination {
   align-items: center;
   gap: 13px;
   display: flex;
 }
 
-.reference-app .pagination .button {
+.pagination .button {
   min-height: 28px;
   padding: 5px 8px;
   font-size: 10px;
@@ -1747,7 +1747,7 @@ tbody tr:hover {
   display: grid;
 }
 
-.reference-app .lead-form {
+.lead-form {
   padding: 20px;
 }
 
@@ -1759,13 +1759,13 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .form-section-title h2 {
+.form-section-title h2 {
   font-size: 13px;
   font-weight: 400;
   color: #627994;
 }
 
-.reference-app .form-section-title p {
+.form-section-title p {
   color: #a5b3c8;
   font-size: 11px;
 }
@@ -1779,38 +1779,50 @@ tbody tr:hover {
 
 .field {
   color: #596e8d;
-  font-size: 14px;
-  display: block;
-}
-
-.reference-app .field > span {
-  color: #616e83;
-  margin-bottom: 9px;
-  font-weight: 400;
-  display: block;
   font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
 }
 
-.reference-app .field input, .reference-app .field select, .reference-app .field textarea {
-  color: #48566c;
-  background: #fff;
-  border: 1px solid #e3eaf5;
-  border-radius: 3px;
+.field > span {
+  color: #4b5a6e;
+  font-weight: 500;
+  display: block;
+  font-size: 12px;
+  letter-spacing: -0.1px;
+}
+
+.field input, .field select, .field textarea {
+  color: #1e293b;
+  background: #ffffff;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
   width: 100%;
   min-height: 40px;
-  padding: 11px 12px;
-  font-size: 12px;
+  padding: 9px 12px;
+  font-size: 13px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: #2c50f3;
+  box-shadow: 0 0 0 3px rgba(44, 80, 243, 0.12);
+  outline: none;
 }
 
 .field textarea {
   resize: vertical;
 }
 
-.reference-app .field input::placeholder, .reference-app .field textarea::placeholder {
-  color: #adbdd2;
+.field input::placeholder, .field textarea::placeholder {
+  color: #a0aec0;
 }
 
-.reference-app .form-actions {
+.form-actions {
   border-color: #edf2f9;
   border-top: 1px solid #edf2f9;
   justify-content: flex-end;
@@ -1821,14 +1833,14 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .form-aside {
+.form-aside {
   background: #f9fbff;
   border-radius: 3px;
   align-self: start;
   padding: 24px;
 }
 
-.reference-app .form-aside .aside-icon {
+.form-aside .aside-icon {
   color: #a0b5db;
   background: #fff;
   border: 1px solid #e2eafb;
@@ -1840,13 +1852,13 @@ tbody tr:hover {
   display: grid;
 }
 
-.reference-app .form-aside h3 {
+.form-aside h3 {
   color: #62758f;
   font-size: 14px;
   font-weight: 400;
 }
 
-.reference-app .form-aside p {
+.form-aside p {
   color: #8899b1;
   margin-top: 10px;
   font-size: 12px;
@@ -1859,7 +1871,7 @@ tbody tr:hover {
   margin: 25px 0;
 }
 
-.reference-app .form-aside h4 {
+.form-aside h4 {
   font-size: 12px;
   font-weight: 400;
   color: #72809a;
@@ -1885,7 +1897,7 @@ tbody tr:hover {
   display: grid;
 }
 
-.reference-app .eyebrow {
+.eyebrow {
   letter-spacing: 1px;
   color: #a9b8d0;
   margin-bottom: 9px;
@@ -1901,17 +1913,17 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .lead-heading > .avatar {
+.lead-heading > .avatar {
   width: 48px;
   height: 48px;
   font-size: 15px;
 }
 
-.reference-app .lead-heading h1 {
+.lead-heading h1 {
   font-size: 25px;
 }
 
-.reference-app .lead-heading p {
+.lead-heading p {
   color: #929db0;
   margin-top: 5px;
   font-size: 11px;
@@ -1921,7 +1933,7 @@ tbody tr:hover {
   margin-left: auto;
 }
 
-.reference-app .detail-status-row {
+.detail-status-row {
   border-color: #e6edf8;
   border-radius: 3px;
   background: #fff;
@@ -1931,7 +1943,7 @@ tbody tr:hover {
   overflow: auto;
 }
 
-.reference-app .detail-status-row button {
+.detail-status-row button {
   color: #9cabc3;
   border-color: #edf1f9;
   font-size: 11px;
@@ -1945,7 +1957,7 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .detail-status-row button.current {
+.detail-status-row button.current {
   color: #7694d3;
   background: #f3f7ff;
 }
@@ -1973,7 +1985,7 @@ tbody tr:hover {
   display: grid;
 }
 
-.reference-app .detail-field > span {
+.detail-field > span {
   color: #8d99ac;
   align-items: center;
   gap: 8px;
@@ -1981,7 +1993,7 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .detail-field > strong {
+.detail-field > strong {
   color: #53637b;
   overflow-wrap: anywhere;
   margin: 9px 0 0 22px;
@@ -1996,14 +2008,14 @@ tbody tr:hover {
   padding: 20px 0 25px;
 }
 
-.reference-app .lead-message p {
+.lead-message p {
   color: #8c9fba;
   font-size: 12px;
   font-style: normal;
   margin-top: 10px;
 }
 
-.reference-app .lead-score-number {
+.lead-score-number {
   color: #6282bf;
   letter-spacing: -2px;
   padding: 2px 24px;
@@ -2011,12 +2023,12 @@ tbody tr:hover {
   font-weight: 400;
 }
 
-.reference-app .score-description > span:last-child {
+.score-description > span:last-child {
   color: #a5b0c3;
   font-size: 9px;
 }
 
-.reference-app .score-factors > div {
+.score-factors > div {
   color: #9dafca;
   font-size: 11px;
   align-items: center;
@@ -2025,23 +2037,23 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .score-factors strong {
+.score-factors strong {
   font-weight: 400;
 }
 
-.reference-app .owner strong {
+.owner strong {
   color: #8198bb;
   font-size: 12px;
   font-weight: 400;
 }
 
-.reference-app .owner div span {
+.owner div span {
   color: #a5b2c6;
   margin-top: 4px;
   font-size: 10px;
 }
 
-.reference-app .property-row {
+.property-row {
   color: #9faec7;
   border-top: 1px solid #edf0f6;
   justify-content: space-between;
@@ -2052,7 +2064,7 @@ tbody tr:hover {
 }
 
 /* CSV Imports */
-.reference-app .dropzone {
+.dropzone {
   background: #fcfdff;
   border-width: 1px;
   border-color: #dce6f8;
@@ -2070,7 +2082,7 @@ tbody tr:hover {
   border-color: #6c8bec;
 }
 
-.reference-app .upload-icon {
+.upload-icon {
   box-shadow: none;
   color: #a8bee0;
   background: #fff;
@@ -2084,13 +2096,13 @@ tbody tr:hover {
   display: grid;
 }
 
-.reference-app .dropzone strong {
+.dropzone strong {
   color: #a1b3ce;
   font-size: 13px;
   font-weight: 400;
 }
 
-.reference-app .dropzone strong > span {
+.dropzone strong > span {
   color: #7c9dd7;
   font-weight: 400;
 }
@@ -2112,13 +2124,13 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .selected-file strong {
+.selected-file strong {
   color: #657e9f;
   font-size: 12px;
   font-weight: 500;
 }
 
-.reference-app .selected-file div > span {
+.selected-file div > span {
   color: #8b9fbb;
   font-size: 12px;
 }
@@ -2129,18 +2141,18 @@ tbody tr:hover {
   display: grid;
 }
 
-.reference-app .import-guide {
+.import-guide {
   padding: 20px;
 }
 
-.reference-app .import-guide h2 {
+.import-guide h2 {
   letter-spacing: -.5px;
   color: #627994;
   font-size: 22px;
   font-weight: 400;
 }
 
-.reference-app .import-guide p {
+.import-guide p {
   color: #8a9bb4;
   margin: 10px 0 22px;
   font-size: 12px;
@@ -2177,7 +2189,7 @@ tbody tr:hover {
   max-width: 920px;
 }
 
-.reference-app .notification-item {
+.notification-item {
   border-color: #eef3fa;
   padding: 24px;
   border-bottom: 1px solid #eef3fa;
@@ -2186,11 +2198,11 @@ tbody tr:hover {
   display: flex;
 }
 
-.reference-app .notification-item.unread {
+.notification-item.unread {
   background: #fcfdff;
 }
 
-.reference-app .notification-icon {
+.notification-icon {
   color: #9eb7dd;
   background: #f3f7ff;
   border-radius: 4px;
@@ -2204,19 +2216,19 @@ tbody tr:hover {
 .notification-icon.task { color: #c3a27c; background: #fcf1e6; }
 .notification-icon.import { color: #8caf9a; background: #edf6f1; }
 
-.reference-app .notification-item strong {
+.notification-item strong {
   color: #6f8aac;
   font-size: 13px;
   font-weight: 400;
 }
 
-.reference-app .notification-item p {
+.notification-item p {
   color: #9fb2ce;
   font-size: 12px;
   margin-top: 7px;
 }
 
-.reference-app .notification-meta {
+.notification-meta {
   color: #abbdd5;
   font-size: 10px;
   gap: 20px;
@@ -2228,7 +2240,7 @@ tbody tr:hover {
   color: #839bd2;
 }
 
-.reference-app .notification-end {
+.notification-end {
   font-size: 11px;
   text-align: center;
   color: #b4bece;
@@ -2411,49 +2423,96 @@ tbody tr:hover {
   margin-top: 33px;
 }
 
+.login-form-inner .field {
+  margin-bottom: 20px;
+}
+
 .login-form-inner .field > span {
-  color: #8fa5c2;
-  font-size: 12px;
-  font-weight: 400;
+  color: #4b5a6e;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
 }
 
 .login-form-inner .field input {
-  color: #596d89;
-  border-color: #e3ebf7;
-  border-radius: 3px;
-  font-size: 12px;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 13px;
+  min-height: 42px;
+  padding: 10px 14px;
+  box-sizing: border-box;
 }
 
 .login-form-inner .button {
-  box-shadow: none;
-  border-radius: 3px;
-  font-size: 12px;
-  font-weight: 400;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
   width: 100%;
-  margin-top: 25px;
+  margin-top: 18px;
   padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .login-form-inner .button.primary {
   background: #2c50f3;
-  border-color: #2c50f3;
+  color: #ffffff;
+  border: 1px solid #2c50f3;
+}
+
+.login-form-inner .button.primary:hover {
+  background: #1e40db;
+  border-color: #1e40db;
 }
 
 .password-field {
-  border: 1px solid #e3ebf7;
-  border-radius: 3px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #ffffff;
   align-items: center;
-  padding-right: 12px;
   display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.password-field:focus-within {
+  border-color: #2c50f3;
+  box-shadow: 0 0 0 3px rgba(44, 80, 243, 0.12);
 }
 
 .password-field input {
-  border: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  flex: 1;
+  min-height: 40px;
+  padding: 10px 14px;
+  background: transparent !important;
+  color: #1e293b;
+  font-size: 13px;
 }
 
 .password-field button {
-  color: #a3b0c5;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  padding: 0 14px;
+  height: 42px;
+  cursor: pointer;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-field button:hover {
+  color: #1e293b;
 }
 
 .login-or {
