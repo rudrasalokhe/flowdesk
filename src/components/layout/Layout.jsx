@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Header } from './Header';
 import { Modal } from '../common/Modal';
+import { ApiInspectorModal } from '../common/ApiInspectorModal';
+import { OpenApiModal } from '../common/OpenApiModal';
 import { Search } from 'lucide-react';
 
 export const Layout = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isApiInspectorOpen, setIsApiInspectorOpen] = useState(false);
+  const [isOpenApiSpecOpen, setIsOpenApiSpecOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -17,6 +22,10 @@ export const Layout = () => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         setIsSearchOpen((prev) => !prev);
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'i') {
+        e.preventDefault();
+        setIsApiInspectorOpen((prev) => !prev);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -33,7 +42,11 @@ export const Layout = () => {
 
   return (
     <div className="app reference-app">
-      <Header onOpenSearch={() => setIsSearchOpen(true)} />
+      <Header
+        onOpenSearch={() => setIsSearchOpen(true)}
+        onOpenApiInspector={() => setIsApiInspectorOpen(true)}
+        onOpenOpenApiSpec={() => setIsOpenApiSpecOpen(true)}
+      />
 
       <div className={`workspace-main ${isWorkbench ? 'is-workbench' : ''}`}>
         <main>
@@ -78,6 +91,18 @@ export const Layout = () => {
           </form>
         </Modal>
       )}
+
+      {/* Live API Inspector Modal (FAANG Showcase) */}
+      <ApiInspectorModal
+        isOpen={isApiInspectorOpen}
+        onClose={() => setIsApiInspectorOpen(false)}
+      />
+
+      {/* OpenAPI / Swagger Spec Modal */}
+      <OpenApiModal
+        isOpen={isOpenApiSpecOpen}
+        onClose={() => setIsOpenApiSpecOpen(false)}
+      />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
@@ -11,11 +11,14 @@ import {
   ShieldCheck,
   Upload,
   Bell,
-  ChevronDown
+  ChevronDown,
+  Terminal,
+  Code2,
+  Server
 } from 'lucide-react';
-import { Badge } from '../common/Badge';
+import { API_BASE_URL } from '../../api/client';
 
-export const Header = ({ onOpenSearch }) => {
+export const Header = ({ onOpenSearch, onOpenApiInspector, onOpenOpenApiSpec }) => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -75,11 +78,36 @@ export const Header = ({ onOpenSearch }) => {
             </NavLink>
           );
         })}
+
+        <span className="nav-divider" />
+
+        {/* FAANG Interview Showcase Tools */}
+        <button
+          className="nav-tool bg-blue-50 text-blue-600 border-blue-200"
+          title="Live REST API Inspector (FAANG Interview Feature)"
+          onClick={onOpenApiInspector}
+        >
+          <Terminal size={17} className="text-blue-600" />
+          <span className="nav-tooltip">API Inspector</span>
+        </button>
+
+        <button
+          className="nav-tool bg-purple-50 text-purple-600 border-purple-200"
+          title="OpenAPI / Swagger Contract Spec"
+          onClick={onOpenOpenApiSpec}
+        >
+          <Code2 size={17} className="text-purple-600" />
+          <span className="nav-tooltip">FastAPI Schema</span>
+        </button>
       </nav>
 
       {/* Account & Controls */}
       <div className="product-account">
-        <span className="sample-label">Sample workspace</span>
+        <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-[11px] font-mono text-slate-300">
+          <Server size={12} className="text-emerald-400" />
+          <span>FastAPI:</span>
+          <span className="text-blue-400 font-semibold">{API_BASE_URL}</span>
+        </div>
 
         <NavLink
           className="nav-tool"
