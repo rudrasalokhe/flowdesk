@@ -27,23 +27,27 @@ export const LeadGrowthChart = ({ data, height = 225 }) => (
       <AreaChart data={data} margin={{ top: 14, right: 12, left: -24, bottom: 0 }}>
         <defs>
           <linearGradient id="leadFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#4263eb" stopOpacity={0.15} />
-            <stop offset="100%" stopColor="#4263eb" stopOpacity={0} />
+            <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.4} />
+            <stop offset="100%" stopColor="#3b82f6" stopOpacity={0} />
+          </linearGradient>
+          <linearGradient id="qualFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#10b981" stopOpacity={0.3} />
+            <stop offset="100%" stopColor="#10b981" stopOpacity={0} />
           </linearGradient>
         </defs>
-        <CartesianGrid vertical={false} stroke="#eef0f4" strokeDasharray="3 3" />
-        <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fill: '#87909f', fontSize: 12 }} minTickGap={35} dy={10} />
-        <YAxis axisLine={false} tickLine={false} tick={{ fill: '#87909f', fontSize: 12 }} />
-        <Tooltip contentStyle={{ border: '1px solid #e5e7eb', borderRadius: 8, fontSize: 13 }} />
-        <Area type="monotone" name="Total leads" dataKey="leads" stroke="#4263eb" strokeWidth={2.5} fill="url(#leadFill)" />
-        <Area type="monotone" name="Qualified" dataKey="qualified" stroke="#96a9eb" strokeWidth={2} strokeDasharray="5 4" fill="transparent" />
+        <CartesianGrid vertical={false} stroke="#1e293b" strokeDasharray="3 3" />
+        <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fill: '#94a3b8', fontSize: 12 }} minTickGap={35} dy={10} />
+        <YAxis axisLine={false} tickLine={false} tick={{ fill: '#94a3b8', fontSize: 12 }} />
+        <Tooltip contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: 8, fontSize: 12, color: '#f8fafc' }} />
+        <Area type="monotone" name="Total leads" dataKey="leads" stroke="#3b82f6" strokeWidth={2.5} fill="url(#leadFill)" />
+        <Area type="monotone" name="Qualified" dataKey="qualified" stroke="#10b981" strokeWidth={2} strokeDasharray="5 4" fill="url(#qualFill)" />
       </AreaChart>
     </ResponsiveContainer>
   </div>
 );
 
 export const SourceDonutChart = ({ data, total }) => {
-  const COLORS = ['#4263eb', '#8c9ff2', '#b6c3f9', '#dce3fc'];
+  const COLORS = ['#3b82f6', '#6366f1', '#8b5cf6', '#ec4899'];
 
   return (
     <div className="source-chart">
@@ -64,7 +68,7 @@ export const SourceDonutChart = ({ data, total }) => {
                 <Cell key={`cell-${index}`} fill={entry.color || COLORS[index % COLORS.length]} />
               ))}
             </Pie>
-            <Tooltip />
+            <Tooltip contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: 8, fontSize: 12, color: '#f8fafc' }} />
           </PieChart>
         </ResponsiveContainer>
         <div className="donut-center">
@@ -76,7 +80,7 @@ export const SourceDonutChart = ({ data, total }) => {
       <div className="source-legend">
         {(data || []).map((item) => (
           <div key={item.name}>
-            <span className="legend-dot" style={{ background: item.color || '#4263eb' }} />
+            <span className="legend-dot" style={{ background: item.color || '#3b82f6' }} />
             <span>{item.name}</span>
             <strong>{item.percent || item.value}</strong>
           </div>
@@ -86,14 +90,14 @@ export const SourceDonutChart = ({ data, total }) => {
   );
 };
 
-export const ScoreDistributionChart = ({ data, dataKey = 'value', color = '#657fee' }) => (
+export const ScoreDistributionChart = ({ data, dataKey = 'value', color = '#8b5cf6' }) => (
   <div style={{ height: 235 }}>
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={data} margin={{ top: 20, right: 10, left: -20, bottom: 0 }}>
-        <CartesianGrid vertical={false} stroke="#eef0f4" />
-        <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#7b8494' }} />
-        <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#7b8494' }} />
-        <Tooltip />
+        <CartesianGrid vertical={false} stroke="#1e293b" />
+        <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#94a3b8' }} />
+        <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#94a3b8' }} />
+        <Tooltip contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: 8, fontSize: 12, color: '#f8fafc' }} />
         <Bar dataKey={dataKey} fill={color} radius={[4, 4, 0, 0]} maxBarSize={44} />
       </BarChart>
     </ResponsiveContainer>
@@ -177,10 +181,10 @@ export const Analytics = () => {
           action={
             <div className="chart-legend">
               <span>
-                <i /> Total leads
+                <i style={{ background: '#3b82f6' }} /> Total leads
               </span>
               <span>
-                <i style={{ background: '#8c9ff2' }} /> Qualified
+                <i style={{ background: '#10b981' }} /> Qualified
               </span>
             </div>
           }
@@ -203,7 +207,7 @@ export const Analytics = () => {
                   <i
                     style={{
                       width: `${Math.min(100, (stage.value / (overview?.total_leads || 1)) * 250)}%`,
-                      background: stage.color || '#4263eb'
+                      background: stage.color || '#3b82f6'
                     }}
                   />
                 </div>
