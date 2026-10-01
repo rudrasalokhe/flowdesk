@@ -135,87 +135,92 @@ export const Tasks = () => {
 
         {error && <ErrorAlert title="Failed to fetch tasks" message={error} onRetry={retry} />}
 
-        <tt resource={tasksData} empty={tasks.length === 0}>
-          {loading ? (
-            <LoadingSpinner label="Fetching tasks..." className="py-16" />
-          ) : (
-            <div className="table-scroll">
-              <table className="tasks-table">
-                <thead>
-                  <tr>
-                    <th>Task</th>
-                    <th>Lead</th>
-                    <th>Assigned to</th>
-                    <th>Due date</th>
-                    <th>Priority</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tasks.map((task) => (
-                    <tr key={task.id}>
-                      <td>
-                        <div className="task-title">
-                          <button
-                            aria-label={`Complete ${task.title}`}
-                            className={`complete-button ${task.status === 'Completed' ? 'checked' : ''}`}
-                            disabled={submitting || task.status === 'Completed'}
-                            onClick={() => handleToggleComplete(task)}
-                          >
-                            {task.status === 'Completed' && <Check size={13} />}
-                          </button>
-                          <strong>{task.title}</strong>
-                        </div>
-                      </td>
-                      <td>
-                        <Link to={`/leads/${task.lead_id}`} className="table-person">
-                          {task.lead}
-                          <span>{task.company}</span>
-                        </Link>
-                      </td>
-                      <td>
-                        <span className="assignee">
-                          <span className="avatar blue small">
-                            {task.assigned_to ? task.assigned_to.slice(0, 2).toUpperCase() : '?'}
-                          </span>
-                          {task.assigned_to}
+        {loading ? (
+          <LoadingSpinner label="Fetching tasks..." className="py-16" />
+        ) : tasks.length === 0 ? (
+          <EmptyState
+            title="No tasks found"
+            description={searchQuery ? `No tasks matching "${searchQuery}".` : 'No tasks in this view.'}
+            actionLabel="Create task"
+            onAction={() => setActiveModal({ mode: 'new' })}
+          />
+        ) : (
+          <div className="table-scroll">
+            <table className="tasks-table">
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Lead</th>
+                  <th>Assigned to</th>
+                  <th>Due date</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tasks.map((task) => (
+                  <tr key={task.id}>
+                    <td>
+                      <div className="task-title">
+                        <button
+                          aria-label={`Complete ${task.title}`}
+                          className={`complete-button ${task.status === 'Completed' ? 'checked' : ''}`}
+                          disabled={submitting || task.status === 'Completed'}
+                          onClick={() => handleToggleComplete(task)}
+                        >
+                          {task.status === 'Completed' && <Check size={13} />}
+                        </button>
+                        <strong>{task.title}</strong>
+                      </div>
+                    </td>
+                    <td>
+                      <Link to={`/leads/${task.lead_id}`} className="table-person">
+                        {task.lead}
+                        <span>{task.company}</span>
+                      </Link>
+                    </td>
+                    <td>
+                      <span className="assignee">
+                        <span className="avatar blue small">
+                          {task.assigned_to ? task.assigned_to.slice(0, 2).toUpperCase() : '?'}
                         </span>
-                      </td>
-                      <td className={task.status === 'Overdue' ? 'overdue-text font-semibold' : ''}>
-                        {task.due}
-                      </td>
-                      <td>
-                        <Badge>{task.priority}</Badge>
-                      </td>
-                      <td>
-                        <Badge>{task.status}</Badge>
-                      </td>
-                      <td>
-                        <div className="row-actions">
-                          <button
-                            className="icon-button"
-                            aria-label={`Edit ${task.title}`}
-                            onClick={() => setActiveModal({ mode: 'edit', ...task })}
-                          >
-                            <Pencil size={15} />
-                          </button>
-                          <button
-                            className="icon-button"
-                            aria-label={`Delete ${task.title}`}
-                            onClick={() => setActiveModal({ mode: 'delete', ...task })}
-                          >
-                            <Trash2 size={15} />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </tt>
+                        {task.assigned_to}
+                      </span>
+                    </td>
+                    <td className={task.status === 'Overdue' ? 'overdue-text font-semibold' : ''}>
+                      {task.due}
+                    </td>
+                    <td>
+                      <Badge>{task.priority}</Badge>
+                    </td>
+                    <td>
+                      <Badge>{task.status}</Badge>
+                    </td>
+                    <td>
+                      <div className="row-actions">
+                        <button
+                          className="icon-button"
+                          aria-label={`Edit ${task.title}`}
+                          onClick={() => setActiveModal({ mode: 'edit', ...task })}
+                        >
+                          <Pencil size={15} />
+                        </button>
+                        <button
+                          className="icon-button"
+                          aria-label={`Delete ${task.title}`}
+                          onClick={() => setActiveModal({ mode: 'delete', ...task })}
+                        >
+                          <Trash2 size={15} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
 
         <div className="table-footer">
           <span>{tasks.length} tasks</span>

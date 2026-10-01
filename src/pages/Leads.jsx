@@ -212,11 +212,15 @@ export const Leads = () => {
         {/* Error / Loading State */}
         {error && <ErrorAlert title="Failed to fetch leads" message={error} onRetry={retry} />}
 
-        <tt resource={leadsResponse} empty={leads.length === 0}>
-          {loading ? (
-            <LoadingSpinner label="Fetching lead records..." className="py-16" />
-          ) : viewMode === 'table' ? (
-            <div className="table-scroll">
+        {loading ? (
+          <LoadingSpinner label="Fetching lead records..." className="py-16" />
+        ) : leads.length === 0 ? (
+          <EmptyState
+            title="No leads found"
+            description="Try adjusting your search filters or add a new lead."
+          />
+        ) : viewMode === 'table' ? (
+          <div className="table-scroll">
               <table>
                 <thead>
                   <tr>
@@ -319,7 +323,6 @@ export const Leads = () => {
               ))}
             </div>
           )}
-        </tt>
 
         {/* Footer Pagination */}
         <div className="table-footer">
