@@ -83,69 +83,67 @@ export const Team = () => {
       >
         {error && <ErrorAlert title="Failed to load team members" message={error} onRetry={retry} />}
 
-        <tt resource={usersData} empty={users.length === 0}>
-          {loading ? (
-            <LoadingSpinner label="Fetching team records..." className="py-16" />
-          ) : (
-            <div className="table-scroll">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Team</th>
-                    <th>Workload</th>
-                    <th>Conversion rate</th>
-                    <th>Status</th>
-                    <th><span className="sr-only">Actions</span></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {users.map((member) => (
-                    <tr key={member.id}>
-                      <td>
-                        <span className="person">
-                          <span className={`avatar ${member.color || 'blue'} small`}>
-                            {member.initials || member.name.slice(0, 2).toUpperCase()}
-                          </span>
-                          <div>
-                            <strong>{member.name}</strong>
-                            <span>{member.email}</span>
-                          </div>
+        {loading ? (
+          <LoadingSpinner label="Fetching team records..." className="py-16" />
+        ) : (
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Team</th>
+                  <th>Workload</th>
+                  <th>Conversion rate</th>
+                  <th>Status</th>
+                  <th><span className="sr-only">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((member) => (
+                  <tr key={member.id}>
+                    <td>
+                      <span className="person">
+                        <span className={`avatar ${member.color || 'blue'} small`}>
+                          {member.initials || member.name.slice(0, 2).toUpperCase()}
                         </span>
-                      </td>
-                      <td>
-                        <span className="role-badge">{member.role}</span>
-                      </td>
-                      <td>{member.team}</td>
-                      <td>
-                        <div className="workload">
-                          <div>
-                            <i style={{ width: `${member.workload}%` }} />
-                          </div>
-                          {member.workload}%
+                        <div>
+                          <strong>{member.name}</strong>
+                          <span>{member.email}</span>
                         </div>
-                      </td>
-                      <td>{member.conversion_rate}%</td>
-                      <td>
-                        <Badge>{member.status}</Badge>
-                      </td>
-                      <td>
-                        <button
-                          className="icon-button"
-                          aria-label={`Edit ${member.name}`}
-                          onClick={() => setSelectedUser(member)}
-                        >
-                          <Pencil size={15} />
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </tt>
+                      </span>
+                    </td>
+                    <td>
+                      <span className="role-badge">{member.role}</span>
+                    </td>
+                    <td>{member.team}</td>
+                    <td>
+                      <div className="workload">
+                        <div>
+                          <i style={{ width: `${member.workload}%` }} />
+                        </div>
+                        {member.workload}%
+                      </div>
+                    </td>
+                    <td>{member.conversion_rate}%</td>
+                    <td>
+                      <Badge>{member.status}</Badge>
+                    </td>
+                    <td>
+                      <button
+                        className="icon-button"
+                        aria-label={`Edit ${member.name}`}
+                        onClick={() => setSelectedUser(member)}
+                      >
+                        <Pencil size={15} />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
 
         <div className="table-footer">
           <span>{users.length} team members</span>

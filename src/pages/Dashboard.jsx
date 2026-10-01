@@ -43,8 +43,11 @@ import {
   Cell
 } from 'recharts';
 
+import { useTheme } from '../context/ThemeContext';
+
 export const Dashboard = () => {
   const navigate = useNavigate();
+  const { isDark } = useTheme();
 
   // Data fetching
   const { data: overview, loading: overviewLoading, error: overviewError, retry: retryOverview } = useApi(analyticsApi.getOverview);
@@ -315,10 +318,10 @@ export const Dashboard = () => {
                         <stop offset="95%" stopColor="#4263eb" stopOpacity={0} />
                       </linearGradient>
                     </defs>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f6" />
-                    <XAxis dataKey="date" stroke="#9aa2af" fontSize={11} />
-                    <YAxis stroke="#9aa2af" fontSize={11} />
-                    <Tooltip contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e6eaf3', borderRadius: '4px', fontSize: '12px' }} />
+                    <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#1e293b' : '#e2e8f0'} />
+                    <XAxis dataKey="date" stroke={isDark ? '#94a3b8' : '#64748b'} fontSize={11} />
+                    <YAxis stroke={isDark ? '#94a3b8' : '#64748b'} fontSize={11} />
+                    <Tooltip contentStyle={{ backgroundColor: isDark ? '#0f172a' : '#ffffff', borderColor: isDark ? '#1e293b' : '#e2e8f0', borderRadius: '8px', fontSize: '12px', color: isDark ? '#f8fafc' : '#0f172a' }} />
                     <Area type="monotone" dataKey="leads" stroke="#4263eb" strokeWidth={2} fill="url(#leadGrad)" />
                     <Area type="monotone" dataKey="qualified" stroke="#8c9ff2" strokeWidth={1.5} strokeDasharray="4 4" fill="none" />
                   </AreaChart>

@@ -54,58 +54,62 @@ export const Notifications = () => {
         <Card>
           {error && <ErrorAlert title="Failed to load notifications" message={error} onRetry={retry} />}
 
-          <tt resource={notificationsData} empty={notifications.length === 0}>
-            {loading ? (
-              <LoadingSpinner label="Fetching notifications..." className="py-16" />
-            ) : (
-              <div className="divide-y divide-slate-100">
-                {notifications.map((item) => {
-                  const IconComponent =
-                    item.type === 'import' ? Upload : item.type === 'task' ? SquareCheckBig : UsersRound;
+          {loading ? (
+            <LoadingSpinner label="Fetching notifications..." className="py-16" />
+          ) : notifications.length === 0 ? (
+            <div className="empty-state py-12 text-center">
+              <Bell className="mx-auto text-muted mb-3 opacity-40" size={36} />
+              <p className="text-sm font-medium text-main">No notifications found</p>
+              <p className="text-xs text-muted mt-1">You are completely up to date.</p>
+            </div>
+          ) : (
+            <div>
+              {notifications.map((item) => {
+                const IconComponent =
+                  item.type === 'import' ? Upload : item.type === 'task' ? SquareCheckBig : UsersRound;
 
-                  return (
-                    <div
-                      key={item.id}
-                      className={`notification-item ${item.read ? '' : 'unread'}`}
-                    >
-                      <span className={`notification-icon ${item.type || 'lead'}`}>
-                        <IconComponent size={21} />
-                      </span>
+                return (
+                  <div
+                    key={item.id}
+                    className={`notification-item ${item.read ? '' : 'unread'}`}
+                  >
+                    <span className={`notification-icon ${item.type || 'lead'}`}>
+                      <IconComponent size={21} />
+                    </span>
 
-                      <div>
-                        <strong>{item.title}</strong>
-                        <p>{item.text || item.message}</p>
-                        <div className="notification-meta">
-                          <span>{item.time || item.created_at}</span>
-                          <Link
-                            to={
-                              item.lead_id
-                                ? `/leads/${item.lead_id}`
-                                : item.type === 'task'
-                                ? '/tasks'
-                                : '/imports'
-                            }
-                          >
-                            View {item.type === 'import' ? 'imports' : item.type || 'details'}
-                          </Link>
-                        </div>
-                      </div>
-
-                      {!item.read && (
-                        <button
-                          className="icon-button"
-                          aria-label={`Mark as read: ${item.title}`}
-                          onClick={() => handleMarkAsRead(item.id)}
+                    <div style={{ flex: 1 }}>
+                      <strong>{item.title}</strong>
+                      <p>{item.text || item.message}</p>
+                      <div className="notification-meta">
+                        <span>{item.time || item.created_at}</span>
+                        <Link
+                          to={
+                            item.lead_id
+                              ? `/leads/${item.lead_id}`
+                              : item.type === 'task'
+                              ? '/tasks'
+                              : '/imports'
+                          }
                         >
-                          <Check size={17} />
-                        </button>
-                      )}
+                          View {item.type === 'import' ? 'imports' : item.type || 'details'}
+                        </Link>
+                      </div>
                     </div>
-                  );
-                })}
-              </div>
-            )}
-          </tt>
+
+                    {!item.read && (
+                      <button
+                        className="icon-button"
+                        aria-label={`Mark as read: ${item.title}`}
+                        onClick={() => handleMarkAsRead(item.id)}
+                      >
+                        <Check size={17} />
+                      </button>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </Card>
 
         <p className="notification-end">You're all caught up on recent updates.</p>
