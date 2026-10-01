@@ -10,7 +10,6 @@ import {
   ArrowRight,
   UploadCloud,
   CheckSquare,
-  Server,
   Terminal,
   Activity,
   Award,
@@ -90,12 +89,6 @@ export const Landing = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(59,130,246,0.18),transparent)] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/80 border border-blue-200 dark:border-blue-800/80 text-blue-700 dark:text-blue-300 text-xs font-mono mb-6 shadow-sm">
-            <Server className="w-3.5 h-3.5 text-emerald-500" />
-            <span>High-Speed REST Architecture · FastAPI & PostgreSQL</span>
-          </div>
-
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight text-center">
             Automate Lead Qualification & Revenue Routing for High-Velocity Teams.
@@ -196,12 +189,9 @@ export const Landing = () => {
       <section id="features" className="py-20 bg-slate-100/50 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
-            <h2 className="text-xs font-mono uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2 text-center">
-              Purpose-Built for Modern RevOps
-            </h2>
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight text-center">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight text-center">
               Everything your revenue team needs to capture, qualify, and convert.
-            </h3>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -279,9 +269,6 @@ export const Landing = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 block mb-2">
-                Backend-First Architecture Spec
-              </span>
               <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
                 Designed to integrate seamlessly with your FastAPI backend.
               </h3>
@@ -340,12 +327,9 @@ GET    /analytics/overview    -> { total_leads, conversion_rate }`}
       <section id="pricing" className="py-20 bg-slate-100/50 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
-            <h2 className="text-xs font-mono uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2 text-center">
-              Transparent Pricing Plans
-            </h2>
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight text-center">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight text-center">
               Flexible tiers for early-stage and scaling RevOps teams.
-            </h3>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
