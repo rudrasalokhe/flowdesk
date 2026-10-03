@@ -1,4 +1,3 @@
-from dns import message
 from sqlalchemy import Integer, Float, String , Column
 from app.database import Base
 

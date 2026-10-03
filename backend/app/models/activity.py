@@ -1,7 +1,7 @@
-from pygments.token import String
-from sqlalchemy import ForeignKey
-from sqlalchemy import Integer, Float, Column, Double 
+from datetime import datetime
+from sqlalchemy import ForeignKey, Integer, Float, Column, Double, String, DateTime
 from app.database import Base
+
 class LeadActivity(Base):
     __tablename__ = "lead_activity"
     id = Column(Integer, primary_key=True)
